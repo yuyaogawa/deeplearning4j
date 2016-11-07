@@ -335,9 +335,13 @@ function renderMultipleTabs(data) {
     var nMachinesData = data["memory"];
     var nMachines = Object.keys(nMachinesData);
 
-    /* Generate Tabs Depending on nMachines.length*/
+    /* Generate Tabs depending on nMachines*/
     for (i = 0; i < nMachines.length; i++)  {
-        $('#systemTab').append("<li id=\"" + nMachines[i] + "\"><a href=\"javascript:void();\">Machine " + nMachines[i] + "</a></li>");
+        $('#systemTab').append("<li id=\"" + nMachines[i] + "\"><a href=\"javascript:void(0);\">Machine " + nMachines[i] + "</a></li>");
+    }
+    /* Adjust tab height if nMachines >= 15*/
+    if (nMachines.length >= 15) {
+        $('#systemTab').css({"height": "50vh", "overflow": "auto"});
     }
 }
 
