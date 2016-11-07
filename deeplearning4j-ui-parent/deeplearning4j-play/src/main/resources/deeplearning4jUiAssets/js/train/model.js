@@ -14,19 +14,19 @@ function setSelectMeanMagChart(selectedChart){
 
     //Tab highlighting logic 
     if (selectedMeanMagChart == "ratios") { 
-        $("#ratios").attr("class", "active"); 
-        $("#paramMM").removeAttr("class"); 
-        $("#updateMM").removeAttr("class"); 
+        $("#mmRatioTab").attr("class", "active"); 
+        $("#mmParamTab").removeAttr("class"); 
+        $("#mmUpdateTab").removeAttr("class"); 
     } 
     else if (selectedMeanMagChart == "paramMM") { 
-        $("#ratios").removeAttr("class"); 
-        $("#paramMM").attr("class", "active"); 
-        $("#updateMM").removeAttr("class"); 
+        $("#mmRatioTab").removeAttr("class"); 
+        $("#mmParamTab").attr("class", "active"); 
+        $("#mmUpdateTab").removeAttr("class"); 
     } 
     else { 
-        $("#ratios").removeAttr("class"); 
-        $("#paramMM").removeAttr("class"); 
-        $("#updateMM").attr("class", "active"); 
+        $("#mmRatioTab").removeAttr("class"); 
+        $("#mmParamTab").removeAttr("class"); 
+        $("#mmUpdateTab").attr("class", "active"); 
     }
 }
 
@@ -117,24 +117,6 @@ function renderMeanMagChart(data) {
         if(!selectedMeanMagChart){
             selectedMeanMagChart = "ratios";
         }
-
-        //Tab highlighting logic
-        if (selectedMeanMagChart == "ratios") {
-            $("#mmRatioTab").attr("class", "active");
-            $("#mmParamTab").removeAttr("class");
-            $("#mmUpdateTab").removeAttr("class");
-        }
-        else if (selectedMeanMagChart == "paramMM") {
-            $("#mmRatioTab").removeAttr("class");
-            $("#mmParamTab").attr("class", "active");
-            $("#mmUpdateTab").removeAttr("class");
-        }
-        else {
-            $("#mmRatioTab").removeAttr("class");
-            $("#mmParamTab").removeAttr("class");
-            $("#mmUpdateTab").attr("class", "active");
-        }
-
 
         var isRatio = selectedMeanMagChart == "ratios";
 
