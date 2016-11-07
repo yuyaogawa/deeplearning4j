@@ -108,10 +108,7 @@
                             </div>
                             <div class="box-content">
                                 <div id="scoreiterchart" class="center" style="height: 300px;" ></div>
-                                <p id="hoverdata"><b>@i18n.getMessage("train.overview.chart.scoreTitleShort")
-                                    :</b> <span id="y">0</span>, <b>@i18n.getMessage("train.overview.charts.iteration")
-                                    :</b> <span id="x">
-                                    0</span></p>
+                                <p id="hoverdata"><b>@i18n.getMessage("train.overview.charts.iteration"):</b> <span id="x">0</span>, <b>@i18n.getMessage("train.overview.chart.scoreTitleShort"):</b> <span id="y">0</span></p>
                             </div>
                         </div>
                             <!-- End Score Chart-->
@@ -173,12 +170,7 @@
                             </div>
                             <div class="box-content">
                                 <div id="updateRatioChart" class="center" style="height: 300px;" ></div>
-                                <p id="hoverdata"><b>@i18n.getMessage("train.overview.chart.updateRatioTitleShort")
-                                    :</b> <span id="yRatio">0</span>, <b>log<sub>
-                                    10</sub> @i18n.getMessage("train.overview.chart.updateRatioTitleShort")
-                                    :</b> <span id="yLogRatio">0</span>
-                                    , <b>@i18n.getMessage("train.overview.charts.iteration"):</b> <span id="xRatio">
-                                        0</span></p>
+                                <p id="hoverdata"><b>@i18n.getMessage("train.overview.charts.iteration"):</b> <span id="xRatio">0</span>, <b>log<sub>10</sub> @i18n.getMessage("train.overview.chart.updateRatioTitleShort"):</b> <span id="yLogRatio">0</span>, <b>@i18n.getMessage("train.overview.chart.updateRatioTitleShort"):</b> <span id="yRatio">0</span></p>
                             </div>
                         </div>
                             <!--End Ratio Table -->
@@ -186,7 +178,7 @@
                         <div class="box span6">
                             <div class="box-header">
                                 <h2><b>@i18n.getMessage("train.overview.chart.stdevTitle"): log<sub>10</sub></b></h2>
-                                <ul class="nav tab-menu nav-tabs" style="position:absolute; margin-top: -11px; right: 22px;">
+                                <ul class="nav tab-menu nav-tabs" style="position:absolute; margin-top: -11px; right: 2px;">
                                     <li class="active" id="stdevActivations"><a href="javascript:void(0);" onclick="selectStdevChart('stdevActivations')">@i18n.getMessage("train.overview.chart.stdevBtn.activations")</a></li>
                                     <li id="stdevGradients"><a href="javascript:void(0);" onclick="selectStdevChart('stdevGradients')">@i18n.getMessage("train.overview.chart.stdevBtn.gradients")</a></li>
                                     <li id="stdevUpdates"><a href="javascript:void(0);" onclick="selectStdevChart('stdevUpdates')">@i18n.getMessage("train.overview.chart.stdevBtn.updates")</a></li>
@@ -194,12 +186,7 @@
                             </div>
                             <div class="box-content">
                                 <div id="stdevChart" class="center" style="height: 300px;" ></div>
-                                <p id="hoverdata"><b>@i18n.getMessage("train.overview.chart.stdevTitleShort")
-                                    :</b> <span id="yStdev">0</span>, <b>log<sub>
-                                    10</sub> @i18n.getMessage("train.overview.chart.stdevTitleShort")
-                                    :</b> <span id="yLogStdev">0</span>
-                                    , <b>@i18n.getMessage("train.overview.charts.iteration"):</b> <span id="xStdev">
-                                        0</span></p>
+                                <p id="hoverdata"><b>@i18n.getMessage("train.overview.charts.iteration"):</b> <span id="xStdev">0</span>, <b>log<sub>10</sub> @i18n.getMessage("train.overview.chart.stdevTitleShort"):</b> <span id="yLogStdev">0</span>, <b>@i18n.getMessage("train.overview.chart.stdevTitleShort"):</b> <span id="yStdev">0</span></p>
                             </div>
                         </div>
                             <!-- End Variance Table -->
