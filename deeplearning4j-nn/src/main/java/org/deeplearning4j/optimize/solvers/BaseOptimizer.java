@@ -304,7 +304,7 @@ public abstract class BaseOptimizer implements ConvexOptimizer {
 
                 Nd4j.getMemoryManager().setCurrentWorkspace(workspace);
             }
-            computationGraphUpdater.update(graph, gradient, getIterationCount(model), batchSize);
+            computationGraphUpdater.update(gradient, getIterationCount(model), batchSize);
         } else {
             if (updater == null) {
                 MemoryWorkspace workspace = Nd4j.getMemoryManager().getCurrentWorkspace();

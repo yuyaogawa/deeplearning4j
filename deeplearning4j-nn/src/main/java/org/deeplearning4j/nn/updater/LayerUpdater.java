@@ -33,7 +33,7 @@ public class LayerUpdater extends BaseMultiLayerUpdater<Layer> {
 
     @Override
     protected INDArray getFlattenedGradientsView() {
-        return network.getBackpropGradientsViewArray();
+        return network.getGradientsViewArray();
     }
 
     @Override
