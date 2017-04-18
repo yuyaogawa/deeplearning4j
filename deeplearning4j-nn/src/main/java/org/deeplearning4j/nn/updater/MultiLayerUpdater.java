@@ -39,6 +39,9 @@ public class MultiLayerUpdater extends BaseMultiLayerUpdater<MultiLayerNetwork> 
 
     @Override
     protected INDArray getFlattenedGradientsView() {
+        if(network.getFlattenedGradients() == null){
+            network.initGradientsView();
+        }
         return network.getFlattenedGradients();
     }
 
