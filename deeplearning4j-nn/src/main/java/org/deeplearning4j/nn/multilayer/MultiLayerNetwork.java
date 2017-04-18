@@ -102,6 +102,8 @@ public class MultiLayerNetwork implements Serializable, Classifier, Layer {
     @Getter
     protected transient INDArray flattenedGradients; //Gradients for all layers are a view/subset of this array
 
+    protected ThreadLocal<Long> lastEtlTime = new ThreadLocal<>();
+
     /*
       Binary drop connect mask
      */
@@ -119,6 +121,11 @@ public class MultiLayerNetwork implements Serializable, Classifier, Layer {
     public MultiLayerNetwork(MultiLayerConfiguration conf) {
         this.layerWiseConfigurations = conf;
         this.defaultConfiguration = conf.getConf(0).clone();
+    }
+
+    public long getLastEtlTime() {
+        Long time = lastEtlTime.get();
+        return time == null ? 0L : time;
     }
 
     /**
@@ -1030,7 +1037,12 @@ public class MultiLayerNetwork implements Serializable, Classifier, Layer {
                 iter.reset();
             }
             while (iter.hasNext()) {
+                long time1 = System.currentTimeMillis();
                 DataSet next = iter.next();
+                long time2 = System.currentTimeMillis();
+
+                lastEtlTime.set((time2 - time1));
+
                 if (next.getFeatureMatrix() == null || next.getLabels() == null)
                     break;
 
@@ -1169,10 +1181,9 @@ public class MultiLayerNetwork implements Serializable, Classifier, Layer {
                     break;
                 currPair = currLayer.backpropGradient(currPair.getSecond());
                 if(currPair.getSecond() != null){
-                    //May be null for embedding layer, etc
+                    //Epsilons may be null for embedding layer
                     currPair.setSecond(currPair.getSecond().leverageTo(workspaceExternal));
                 }
-
 
                 LinkedList<Triple<String, INDArray, Character>> tempList = new LinkedList<>();
                 for (Map.Entry<String, INDArray> entry : currPair.getFirst().gradientForVariable().entrySet()) {
