@@ -4,14 +4,14 @@ import org.deeplearning4j.nn.api.Layer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.nd4j.linalg.api.ndarray.INDArray;
 
+import java.util.HashMap;
+
 /**
  * Updater for a single layer, excluding MultiLayerNetwork (which also implements the Layer interface)
  *
  * @author Alex Black
  */
 public class LayerUpdater extends BaseMultiLayerUpdater<Layer> {
-
-    private final Layer[] layerArr;
 
     public LayerUpdater(Layer layer) {
         this(layer, null);
@@ -23,12 +23,13 @@ public class LayerUpdater extends BaseMultiLayerUpdater<Layer> {
             throw new UnsupportedOperationException("Cannot use LayerUpdater for a MultiLayerNetwork");
         }
 
-        this.layerArr = new Layer[]{layer};
+        layersByName = new HashMap<>();
+        layersByName.put(layer.conf().getLayer().getLayerName(), layer);
     }
 
     @Override
     protected Layer[] getOrderedLayers() {
-        return layerArr;
+        return new Layer[]{network};
     }
 
     @Override
