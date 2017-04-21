@@ -41,4 +41,9 @@ public class LayerUpdater extends BaseMultiLayerUpdater<Layer> {
     protected boolean isMiniBatch() {
         return network.conf().isMiniBatch();
     }
+
+    @Override
+    protected boolean isSingleLayerUpdater(){
+        return true;
+    }
 }
