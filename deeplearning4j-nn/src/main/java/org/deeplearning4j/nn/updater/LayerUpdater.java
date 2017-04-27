@@ -17,9 +17,9 @@ public class LayerUpdater extends BaseMultiLayerUpdater<Layer> {
         this(layer, null);
     }
 
-    public LayerUpdater(Layer layer, INDArray updaterState){
+    public LayerUpdater(Layer layer, INDArray updaterState) {
         super(layer, updaterState);
-        if(layer instanceof MultiLayerNetwork){
+        if (layer instanceof MultiLayerNetwork) {
             throw new UnsupportedOperationException("Cannot use LayerUpdater for a MultiLayerNetwork");
         }
 
@@ -29,7 +29,7 @@ public class LayerUpdater extends BaseMultiLayerUpdater<Layer> {
 
     @Override
     protected Layer[] getOrderedLayers() {
-        return new Layer[]{network};
+        return new Layer[] {network};
     }
 
     @Override
@@ -43,7 +43,7 @@ public class LayerUpdater extends BaseMultiLayerUpdater<Layer> {
     }
 
     @Override
-    protected boolean isSingleLayerUpdater(){
+    protected boolean isSingleLayerUpdater() {
         return true;
     }
 }
