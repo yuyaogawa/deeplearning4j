@@ -34,7 +34,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import org.apache.commons.codec.binary.Base64;
+//import org.apache.commons.codec.binary.Base64;
+import android.util.Base64;
 import org.apache.commons.compress.compressors.gzip.GzipUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.LineIterator;
@@ -2798,7 +2799,7 @@ public class WordVectorSerializer {
         if (word.startsWith("B64:")) {
             String arp = word.replaceFirst("B64:", "");
             try {
-                return new String(Base64.decodeBase64(arp), "UTF-8");
+                return new String(Base64.decode(arp,0), "UTF-8");
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
